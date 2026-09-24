@@ -14,9 +14,9 @@
 - Evidence: No user entity integration to aid know who is assigned to what, 
 - Impact:
 - Priority:
-- Proposed solution:
+- Proposed solution: reload data to get latest updates
 - Verification:
-- Implementation notes:
+- Implementation notes: 
 
 
 - Location: Frontend api client
