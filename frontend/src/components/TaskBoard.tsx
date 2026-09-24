@@ -11,15 +11,16 @@ export default function TaskBoard({ projectId }) {
     });
   }, [projectId]);
 
-  const handleToggle = (task) => {
-    const next = task.status === 'DONE' ? 'TODO' : 'DONE';
-    task.status = next;
-    setTasks((prevTasks) => {
-      prevTasks.map((item) => {
-        task.id === item.id ? {...task, status:next} : item
-      })
-    })
-    updateTaskStatus(task.id, next);
+  const handleToggle = async (task) => {
+    const nextStatus = task.status === 'DONE' ? 'TODO' : 'DONE';
+
+    try {
+      await updateTaskStatus(task.id, nextStatus);
+      const refreshedTasks = await getTasks(projectId);
+      setTasks(refreshedTasks);
+    } catch (error) {
+      console.error('Failed to update task status', error);
+    }
   };
 
   return (
