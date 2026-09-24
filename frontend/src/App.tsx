@@ -1,16 +1,22 @@
 import { useState } from 'react';
 import ProjectList from './components/ProjectList';
 import TaskBoard from './components/TaskBoard';
+import Login from './components/auth/Login'
 
 export default function App() {
   const [selectedProjectId, setSelectedProjectId] = useState(null);
+  const [openLogin, setOpenLogin] = useState(false)
 
   return (
+
+
+
     <div className="layout">
       <header className="topbar">
         <span className="brand">✓ TaskFlow</span>
         <span className="brand-sub">Project &amp; task manager</span>
       </header>
+
 
       <div className="app">
         <aside className="sidebar">

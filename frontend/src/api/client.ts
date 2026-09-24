@@ -1,5 +1,15 @@
 const BASE_URL = '/api';
 
+async function login() {
+    const res = await fetch(`${BASE_URL}/auth/login`)
+    return res.json
+}
+
+async function register() {
+    const res = await fetch(`${BASE_URL}/auth/register`)
+    return res.json
+}
+
 async function request(path, options?) {
   const res = await fetch(`${BASE_URL}${path}`, options);
   return res.json();
